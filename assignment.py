@@ -22,11 +22,19 @@ def cosineLaw(side1, side2, angle, oppositeSide=True):
     import math
     x = toRadians(angle)
     if oppositeSide == True:
-        math.sqrt(side1**2 + side2**2 - 2*side1*side2*math.cos(x))
+        tanswer = math.sqrt(side1**2 + side2**2 - 2*side1*side2*math.cos(x))
+        return tanswer
     elif oppositeSide == False:
-        sides = (side1, side2)
-        math.sqrt( max(sides)**2 - min(sides)**2 )
-    return 
+        if side1 > side2:
+            long = side1
+        else:
+            long = side2
+        a = 1
+        b = -2*long*math.cos(x)
+        c = b**2 - a**2
+        qlist = quadratic(a, b, c)
+        fanswer = solution(qlist)
+        return fanswer
 
 
 def toRadians(angle):
@@ -34,6 +42,7 @@ def toRadians(angle):
     radianAngle = angle*(math.pi/180)
     x = float(radianAngle)
     return x
+
 
 def quadratic(a, b, c):
     import math
@@ -43,9 +52,7 @@ def quadratic(a, b, c):
     answers.sort()
     return answers
 
-def solution( a ):
-    z = max(a)
+
+def solution(a):
+    z = a[1]
     return z
-
-
-

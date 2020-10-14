@@ -30,7 +30,4 @@ def test5():
     assert round(answer, 1) == 11.7
 
 
-test1()
-test2()
-test3()
-test4()
+test5()
