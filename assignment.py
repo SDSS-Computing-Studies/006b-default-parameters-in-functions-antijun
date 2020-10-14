@@ -26,12 +26,12 @@ def cosineLaw(side1, side2, angle, oppositeSide=True):
         return tanswer
     elif oppositeSide == False:
         if side1 > side2:
-            long = side1
+            s = side2
         else:
-            long = side2
+            s = side1
         a = 1
-        b = -2*long*math.cos(x)
-        c = b**2 - a**2
+        b = -2*s*math.cos(x)
+        c = side2**2 - side1**2
         qlist = quadratic(a, b, c)
         fanswer = solution(qlist)
         return fanswer
